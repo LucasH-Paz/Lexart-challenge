@@ -35,14 +35,12 @@ function App() {
   };
 
   const [isEditing, setIsEditing] = useState(false);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(mockDocuments);
   const [currentDoc, setCurrentDoc] = useState(DEFAULT_DOC);
-  const [isUpdate, setIsUpdate] = useState(false);
 
   const resetStates = () => {
     setIsEditing(false);
     setCurrentDoc(DEFAULT_DOC);
-    setIsUpdate(false);
   };
 
   return (
@@ -50,9 +48,9 @@ function App() {
       <Header setIsEditing={setIsEditing} isEditing={isEditing} />
       <List
         items={items}
-        setter={
+        setters={
         {
-          setIsEditing, setItems, setIsUpdate, setCurrentDoc,
+          setIsEditing, setItems, setCurrentDoc,
         }
         }
       />
