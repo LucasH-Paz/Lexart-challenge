@@ -4,6 +4,7 @@ import './App.css';
 
 import Header from './Components/Header';
 import List from './Components/List';
+import Form from './Components/Form';
 
 const mockDocuments = [
   {
@@ -46,6 +47,15 @@ function App() {
   return (
     <div className="App">
       <Header setIsEditing={setIsEditing} isEditing={isEditing} />
+      { isEditing && (
+      <Form
+        currentDoc={currentDoc}
+        items={items}
+        setters={
+        { setItems, resetStates }
+      }
+      />
+      )}
       <List
         items={items}
         setters={
