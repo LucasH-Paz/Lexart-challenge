@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { deleteItem } from '../../Services/network';
+import './styles.css';
 
 const headers = ['ID', 'Quantity', 'Product Name', 'Price ($)', 'Client', 'Active', ''];
 
@@ -24,7 +25,7 @@ const List = ({ items, setters }) => {
   };
 
   return (
-    <table>
+    <table className="table is-bordered is-striped table is-hoverable">
       <thead>
         <tr>
           {
@@ -47,12 +48,15 @@ const List = ({ items, setters }) => {
                 <button
                   type="button"
                   onClick={() => onEdit(item)}
+                  className="button is-info is-small"
                 >
                   Select
                 </button>
+                {' '}
                 <button
                   type="button"
                   onClick={() => onDelete(item._id)}
+                  className="button is-danger is-small"
                 >
                   Delete
                 </button>
