@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { deleteItem } from '../../Services/network';
+import { deleteItem, getItem } from '../../Services/network';
 import './styles.css';
 
 const headers = ['ID', 'Quantity', 'Product Name', 'Price ($)', 'Client', 'Active', ''];
@@ -12,8 +12,9 @@ const List = ({ items, setters }) => {
     setIsEditing, setItems, setCurrentDoc, setIsUpdate,
   } = setters;
 
-  const onEdit = (currentDoc) => {
-    setCurrentDoc(currentDoc);
+  const onEdit = async (id) => {
+    const { data } = await getItem(id);
+    setCurrentDoc(data);
     setIsUpdate(true);
     setIsEditing(true);
   };
@@ -47,7 +48,7 @@ const List = ({ items, setters }) => {
               <td>
                 <button
                   type="button"
-                  onClick={() => onEdit(item)}
+                  onClick={() => onEdit(item._id)}
                   className="button is-info is-small"
                 >
                   Select
