@@ -57,6 +57,7 @@ const Form = ({ currentDoc, items, setters, isUpdate }) => {
           defaultValue={quantity}
           id="qnty"
           className="input"
+          required
         />
       </label>
       <label htmlFor="prc" className="label">
@@ -67,6 +68,7 @@ const Form = ({ currentDoc, items, setters, isUpdate }) => {
           defaultValue={price}
           id="prc"
           className="input"
+          required
         />
       </label>
       <label htmlFor="clt" className="label">
@@ -77,6 +79,7 @@ const Form = ({ currentDoc, items, setters, isUpdate }) => {
           defaultValue={client.name}
           id="clt"
           className="input"
+          required
         />
       </label>
       <label htmlFor="prdt" className="label">
@@ -87,6 +90,7 @@ const Form = ({ currentDoc, items, setters, isUpdate }) => {
           defaultValue={product.name}
           id="prdt"
           className="input"
+          required
         />
       </label>
       <label htmlFor="status" className="label">
