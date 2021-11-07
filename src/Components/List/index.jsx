@@ -25,7 +25,7 @@ const List = ({ items, setters }) => {
   };
 
   return (
-    <table className="table is-bordered is-striped table is-hoverable">
+    <table className="table is-bordered is-striped table is-hoverable is-fullwidth">
       <thead>
         <tr>
           {
