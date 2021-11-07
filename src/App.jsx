@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import 'bulma/css/bulma.min.css';
-import './App.css';
 
 import Header from './Components/Header';
 import List from './Components/List';
@@ -68,25 +67,27 @@ function App() {
   return (
     <div className="App">
       <Header setIsEditing={setIsEditing} isEditing={isEditing} />
-      {isEditing && (
-        <Form
-          currentDoc={currentDoc}
+      <div className="content-cntl">
+        {isEditing && (
+          <Form
+            currentDoc={currentDoc}
+            items={items}
+            setters={
+              { setItems, resetStates }
+            }
+            isUpdate={isUpdate}
+          />
+        )}
+        <List
           items={items}
           setters={
-            { setItems, resetStates }
+            {
+              setIsEditing, setItems, setCurrentDoc, setIsUpdate,
+            }
           }
-          isUpdate={isUpdate}
         />
-      )}
-      <List
-        items={items}
-        setters={
-          {
-            setIsEditing, setItems, setCurrentDoc, setIsUpdate,
-          }
-        }
-      />
-      { isLoading && <Loading />}
+      </div>
+      {isLoading && <Loading />}
     </div>
   );
 }
