@@ -2,6 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { deleteItem } from '../../Services/network';
 
 const headers = ['ID', 'Quantity', 'Product Name', 'Price ($)', 'Client', 'Active', ''];
 
@@ -16,6 +17,7 @@ const List = ({ items, setters }) => {
   };
 
   const onDelete = (id) => {
+    deleteItem(id);
     const newItems = items.filter(({ _id }) => _id !== id);
     setItems(newItems);
   };
