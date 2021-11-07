@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { updateItem, newItem } from '../../Services/network';
+import './styles.css';
 
 const Form = ({ currentDoc, items, setters, isUpdate }) => {
   const {
@@ -48,28 +49,63 @@ const Form = ({ currentDoc, items, setters, isUpdate }) => {
 
   return (
     <form>
-      <label htmlFor="qnty">
+      <label htmlFor="qnty" className="label">
         Quantity
-        <input type="number" name="quantity" defaultValue={quantity} id="qnty" />
+        <input
+          type="number"
+          name="quantity"
+          defaultValue={quantity}
+          id="qnty"
+          className="input"
+        />
       </label>
-      <label htmlFor="prc">
+      <label htmlFor="prc" className="label">
         Price
-        <input type="number" name="price" defaultValue={price} id="prc" />
+        <input
+          type="number"
+          name="price"
+          defaultValue={price}
+          id="prc"
+          className="input"
+        />
       </label>
-      <label htmlFor="clt">
+      <label htmlFor="clt" className="label">
         Cient
-        <input type="text" name="client" defaultValue={client.name} id="clt" />
+        <input
+          type="text"
+          name="client"
+          defaultValue={client.name}
+          id="clt"
+          className="input"
+        />
       </label>
-      <label htmlFor="prdt">
+      <label htmlFor="prdt" className="label">
         Product Name
-        <input type="text" name="product" defaultValue={product.name} id="prdt" />
+        <input
+          type="text"
+          name="product"
+          defaultValue={product.name}
+          id="prdt"
+          className="input"
+        />
       </label>
-      <label htmlFor="status">
-        Status
-        <input type="checkbox" name="active" defaultChecked id="status" />
+      <label htmlFor="status" className="label">
+        <input
+          type="checkbox"
+          name="active"
+          defaultChecked
+          id="status"
+          className="checkbox"
+        />
+        {'  Active'}
       </label>
-      <button type="submit" onClick={handleSubmit}>Save</button>
-      <button type="button" onClick={() => resetStates()}>Cancel</button>
+      <button type="submit" onClick={handleSubmit} className="button is-success">
+        Save
+      </button>
+      {'  '}
+      <button type="button" onClick={() => resetStates()} className="button is-danger">
+        Cancel
+      </button>
     </form>
   );
 };
