@@ -9,11 +9,13 @@ const headers = ['ID', 'Quantity', 'Product Name', 'Price ($)', 'Client', 'Activ
 
 const List = ({ items, setters }) => {
   const {
-    setIsEditing, setItems, setCurrentDoc, setIsUpdate,
+    setIsEditing, setItems, setCurrentDoc, setIsUpdate, setIsLoading,
   } = setters;
 
   const onEdit = async (id) => {
+    setIsLoading(true);
     const { data } = await getItem(id);
+    setIsLoading(false);
     setCurrentDoc(data);
     setIsUpdate(true);
     setIsEditing(true);

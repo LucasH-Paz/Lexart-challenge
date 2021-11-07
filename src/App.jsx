@@ -84,7 +84,7 @@ function App() {
               items={items}
               setters={
                 {
-                  setIsEditing, setItems, setCurrentDoc, setIsUpdate,
+                  setIsEditing, setItems, setCurrentDoc, setIsUpdate, setIsLoading,
                 }
               }
             />
