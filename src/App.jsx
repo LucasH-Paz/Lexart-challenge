@@ -40,19 +40,24 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [items, setItems] = useState([]);
   const [currentDoc, setCurrentDoc] = useState(DEFAULT_DOC);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const resetStates = () => {
     setIsEditing(false);
     setCurrentDoc(DEFAULT_DOC);
+    setIsUpdate(false);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     try {
       const fetchItems = async () => {
+        setIsLoading(true);
         const { data } = await getItems();
         setItems(data);
+        setIsLoading(false);
       };
-
       fetchItems();
     } catch (e) {
       resetStates();
@@ -62,21 +67,22 @@ function App() {
   return (
     <div className="App">
       <Header setIsEditing={setIsEditing} isEditing={isEditing} />
-      { isEditing && (
-      <Form
-        currentDoc={currentDoc}
-        items={items}
-        setters={
-        { setItems, resetStates }
-      }
-      />
+      {isEditing && (
+        <Form
+          currentDoc={currentDoc}
+          items={items}
+          setters={
+            { setItems, resetStates }
+          }
+          isUpdate={isUpdate}
+        />
       )}
       <List
         items={items}
         setters={
-        {
-          setIsEditing, setItems, setCurrentDoc,
-        }
+          {
+            setIsEditing, setItems, setCurrentDoc, setIsUpdate,
+          }
         }
       />
     </div>
