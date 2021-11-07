@@ -11,3 +11,5 @@ export const updateItem = async (id, payload) => (
 export const deleteItem = async (id) => axios.delete(`${ENDPOINT_BASE}/${id}`);
 
 export const newItem = async (payload) => axios.post(ENDPOINT_BASE, payload);
+
+export const getItem = async (id) => axios.get(`${ENDPOINT_BASE}/${id}`);
