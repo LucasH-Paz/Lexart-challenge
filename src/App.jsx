@@ -78,14 +78,18 @@ function App() {
             isUpdate={isUpdate}
           />
         )}
-        <List
-          items={items}
-          setters={
-            {
-              setIsEditing, setItems, setCurrentDoc, setIsUpdate,
-            }
-          }
-        />
+        {!isLoading && (
+          <div>
+            <List
+              items={items}
+              setters={
+                {
+                  setIsEditing, setItems, setCurrentDoc, setIsUpdate,
+                }
+              }
+            />
+          </div>
+        )}
       </div>
       {isLoading && <Loading />}
     </div>

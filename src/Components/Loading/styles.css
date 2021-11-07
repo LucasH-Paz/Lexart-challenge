@@ -2,7 +2,7 @@
   position: fixed;
   height: calc(100vh - 5rem);
   width: 100vw;
-  background-color: rgba(26, 26, 26, 0.178);
+  background-color: rgba(26, 26, 26, 0.055);
   top: 5rem;
   left: 0;
   display: flex;
@@ -65,4 +65,6 @@
     transform: translate(24px, 0);
   }
 }
+
+/* SOURCE: https://loading.io/css/ */
 
