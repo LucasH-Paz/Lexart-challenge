@@ -8,11 +8,12 @@ const headers = ['ID', 'Quantity', 'Product Name', 'Price ($)', 'Client', 'Activ
 
 const List = ({ items, setters }) => {
   const {
-    setIsEditing, setItems, setCurrentDoc,
+    setIsEditing, setItems, setCurrentDoc, setIsUpdate,
   } = setters;
 
   const onEdit = (currentDoc) => {
     setCurrentDoc(currentDoc);
+    setIsUpdate(true);
     setIsEditing(true);
   };
 

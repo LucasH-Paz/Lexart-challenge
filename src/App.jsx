@@ -1,10 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import Header from './Components/Header';
 import List from './Components/List';
 import Form from './Components/Form';
+import Loading from './Components/Loading';
 
 import { getItems } from './Services/network';
 
@@ -85,6 +85,7 @@ function App() {
           }
         }
       />
+      { isLoading && <Loading />}
     </div>
   );
 }
