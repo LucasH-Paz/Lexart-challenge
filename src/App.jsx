@@ -6,24 +6,26 @@ import Header from './Components/Header';
 import List from './Components/List';
 import Form from './Components/Form';
 
-const mockDocuments = [
-  {
-    _id: 1,
-    quantity: 10,
-    product: { name: 'Tomate' },
-    price: 100,
-    client: { name: 'Lucas' },
-    active: 'true',
-  },
-  {
-    _id: 2,
-    quantity: 15,
-    product: { name: 'Abobrinha' },
-    price: 50,
-    client: { name: 'João' },
-    active: 'false',
-  },
-];
+import { getItems } from './Services/network';
+
+// const mockDocuments = [
+//   {
+//     _id: 1,
+//     quantity: 10,
+//     product: { name: 'Tomate' },
+//     price: 100,
+//     client: { name: 'Lucas' },
+//     active: 'true',
+//   },
+//   {
+//     _id: 2,
+//     quantity: 15,
+//     product: { name: 'Abobrinha' },
+//     price: 50,
+//     client: { name: 'João' },
+//     active: 'false',
+//   },
+// ];
 
 function App() {
   const DEFAULT_DOC = {
@@ -36,13 +38,26 @@ function App() {
   };
 
   const [isEditing, setIsEditing] = useState(false);
-  const [items, setItems] = useState(mockDocuments);
+  const [items, setItems] = useState([]);
   const [currentDoc, setCurrentDoc] = useState(DEFAULT_DOC);
 
   const resetStates = () => {
     setIsEditing(false);
     setCurrentDoc(DEFAULT_DOC);
   };
+
+  useEffect(() => {
+    try {
+      const fetchItems = async () => {
+        const { data } = await getItems();
+        setItems(data);
+      };
+
+      fetchItems();
+    } catch (e) {
+      resetStates();
+    }
+  }, []);
 
   return (
     <div className="App">
