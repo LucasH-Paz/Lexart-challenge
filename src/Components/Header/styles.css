@@ -1,0 +1,9 @@
+header {
+  background-color: rgb(113, 169, 241);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  width: 100vw;
+}

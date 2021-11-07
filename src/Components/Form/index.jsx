@@ -27,8 +27,7 @@ const Form = ({ currentDoc, items, setters, isUpdate }) => {
       handleStates(payload, id);
       return;
     }
-    const { data } = await newItem(payload);
-    const { _id: ID, ...infos } = data;
+    const { data: { _id: ID, ...infos } } = await newItem(payload);
     setItems([...items, { _id: ID, ...infos }]);
     resetStates();
   };

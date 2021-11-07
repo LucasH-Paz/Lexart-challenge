@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'bulma/css/bulma.min.css';
 import './App.css';
 
 import Header from './Components/Header';

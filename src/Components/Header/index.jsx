@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.css';
 
 const Header = ({ setIsEditing, isEditing }) => (
   <header>
-    <h1>ABM Stock</h1>
+    <h1 className="title">ABM Stock</h1>
     <button
       type="button"
       onClick={() => setIsEditing(!isEditing)}
+      className="button is-primary"
     >
       Add new item
     </button>
