@@ -22,38 +22,42 @@ const List = ({ items, setters }) => {
 
   return (
     <table>
-      <tr>
+      <thead>
+        <tr>
+          {
+            headers.map((header, index) => (
+              <th key={`head${index}`}>{header}</th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
         {
-          headers.map((header, index) => (
-            <th key={`head${index}`}>{header}</th>
+          items.map((item, index) => (
+            <tr key={`row${index}`}>
+              {
+                Object.values(item).map(
+                  (column, idx) => (<td key={`cell${idx}`}>{column.name || column}</td>),
+                )
+              }
+              <td>
+                <button
+                  type="button"
+                  onClick={() => onEdit(item)}
+                >
+                  Select
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onDelete(item._id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
           ))
         }
-      </tr>
-      {
-        items.map((item, index) => (
-          <tr key={`row${index}`}>
-            {
-              Object.values(item).map(
-                (column, idx) => (<td key={`cell${idx}`}>{column.name || column}</td>),
-              )
-            }
-            <td>
-              <button
-                type="button"
-                onClick={() => onEdit(item)}
-              >
-                Select
-              </button>
-              <button
-                type="button"
-                onClick={() => onDelete(item._id)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))
-      }
+      </tbody>
     </table>
   );
 };

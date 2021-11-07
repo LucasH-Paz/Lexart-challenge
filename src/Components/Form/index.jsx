@@ -41,7 +41,8 @@ const Form = ({ currentDoc, items, setters }) => {
       <input type="text" name="client" defaultValue={client.name} id="clt" />
       <input type="text" name="product" defaultValue={product.name} id="prdt" />
       <input type="checkbox" name="active" defaultChecked id="status" />
-      <button type="submit" onClick={handleSubmit}>Salvar</button>
+      <button type="submit" onClick={handleSubmit}>Save</button>
+      <button type="button" onClick={() => resetStates()}>Cancel</button>
     </form>
   );
 };
